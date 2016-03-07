@@ -5,14 +5,16 @@ namespace App\AdminModule\Components\AdminMenu;
 class AdminMenuControl extends \App\AdminModule\Components\BaseControl
 {	
 	/** @var array */
-	public $items = [];
+	private $items = [];
 
+	/** @var string */
 	private $templateFile;
 	
-	public function setItem($name)
+	public function setItem($factory)
 	{
-		$item = new $name();
-		$this->items[] = $item->item;	
+		$item = $factory->create();
+
+		$this->items[] = $item->addItem();	
 	}
     
     /**

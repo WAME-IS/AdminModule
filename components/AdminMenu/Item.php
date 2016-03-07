@@ -115,6 +115,28 @@ class Item
         
         return $this;
     }
+	
+    /**
+     * Add sseparator
+     * 
+     * @param string $title
+     * @return \App\AdminModule\Components\AdminMenu\Item
+     */
+    public function addSeparator($title = null)
+    {
+        $return = new \stdClass();
+        $return->badge = null;
+        $return->class = 'divider';
+        $return->description = null;
+        $return->icon = null;
+        $return->link = null;
+        $return->title = $title;
+        $return->childs = null;
+		
+		$this->childs[] = $return;
+
+        return $this;
+    }
     
     /**
      * Return item object
