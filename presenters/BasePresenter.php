@@ -8,8 +8,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     /** h4kuna Gettext latte translator trait */
     use \h4kuna\Gettext\InjectTranslator;
-    
-	/** @var \App\AdminModule\Components\AdminMenu\AdminMenuControl @inject */
+
+	/** @var \Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl @inject */
 	public $adminMenuControl;
     
 	/** @var \WebLoader\Nette\LoaderFactory @inject */
@@ -40,7 +40,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		return $this->webLoader->createJavaScriptLoader('admin');
 	}
     
-    /** @return \App\AdminModule\Components\AdminMenu\AdminMenuControl */
+    /** @return \Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl */
 	protected function createComponentAdminMenu()
 	{
         $control = $this->adminMenuControl;

@@ -1,0 +1,33 @@
+{if count($items) > 0}
+    {var $class = 'adminMenu'}
+    
+    {block items}
+        <ul class="{$class}">
+            <li n:foreach="$items as $item" class="{$item->class}">
+                {if $item->link}
+                    <a href="{$item->link}">
+                        <span n:if="$item->icon" class="{$item->icon}"></span>
+
+                        <span class="title">{$item->title}</span>
+
+                        <p n:if="$item->description">{$item->description|noescape}</p>
+
+                        <span n:if="$item->badge" class="badge">{$item->badge}</span>
+                    </a>
+                {else}
+                    <span n:if="$item->icon" class="{$item->icon}"></span>
+
+                    <span class="title">{$item->title}</span>
+
+                    <p n:if="$item->description">{$item->description|noescape}</p>
+
+                    <span n:if="$item->badge" class="badge">{$item->badge}</span>
+                {/if}
+
+                {if count($item->childs) > 0}
+                    {include items, 'class' => 'sub', 'items' => $item->childs}
+                {/if}
+            </li>
+        </ul>
+    {/block}
+{/if}

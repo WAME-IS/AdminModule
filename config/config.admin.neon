@@ -27,4 +27,4 @@ webloader:
 
 services:
 	AdminMenu:
-		class: App\AdminModule\Components\AdminMenu\AdminMenuControl
+		class: Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl
