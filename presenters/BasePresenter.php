@@ -9,8 +9,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** h4kuna Gettext latte translator trait */
     use \h4kuna\Gettext\InjectTranslator;
 
-	/** @var \Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl @inject */
-	public $adminMenuControl;
+	/** @var \Wame\MenuModule\Components\MenuControl @inject */
+	public $menuControl;
+	
+	/** @var \Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider @inject */
+	public $adminMenuProvider;
     
 	/** @var \WebLoader\Nette\LoaderFactory @inject */
 	public $webLoader;
@@ -39,11 +42,15 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
 		return $this->webLoader->createJavaScriptLoader('admin');
 	}
-    
-    /** @return \Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl */
-	protected function createComponentAdminMenu()
+      
+    /** @return \Wame\MenuModule\Components\MenuControl */
+	protected function createComponentMenu()
 	{
-        $control = $this->adminMenuControl;
+        $control = $this->menuControl;
+		$control->addProvider($this->adminMenuProvider);
+		$control->setContainerPrototype(\Nette\Utils\Html::el('div')->setClass('com-adminMenu'));
+		$control->setListPrototype(\Nette\Utils\Html::el('ul')->setClass('list-group'));
+		$control->setItemPrototype(\Nette\Utils\Html::el('li')->setClass('list-group-item'));
         
 		return $control;
 	}    

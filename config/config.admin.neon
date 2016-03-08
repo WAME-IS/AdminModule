@@ -23,8 +23,3 @@ webloader:
                 - https://nette.github.io/resources/js/netteForms.min.js
             files:
                 - %appDir%/../private/javascripts/admin/main.js
-
-
-services:
-	AdminMenu:
-		class: Wame\AdminModule\Components\AdminMenuControl\AdminMenuControl
