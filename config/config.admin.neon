@@ -23,3 +23,6 @@ webloader:
                 - https://nette.github.io/resources/js/netteForms.min.js
             files:
                 - %appDir%/../private/javascripts/admin/main.js
+
+services:
+    admin.module: Wame\AdminModule

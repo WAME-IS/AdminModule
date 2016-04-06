@@ -31,11 +31,15 @@ class AdminMenuProvider
     public function getItems()
     {
         foreach ($this->services as $service) {
-            $item = $service->create();
-            
-            $this->items[] = $item->addItem();
+            $item = $service->create()->addItem();
+			if (array_key_exists($item->name, $this->items)) {
+				$this->items[$item->name] = (object) \Nette\Utils\Arrays::mergeTree((array) $this->items[$item->name], (array) $item);
+			} else {
+				$this->items[$item->name] = $item;
+			}
+			
         }
-        
+       
         return $this->items;
     }
     

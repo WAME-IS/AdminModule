@@ -3,6 +3,7 @@
 namespace App\AdminModule\Presenters;
 
 use Nette;
+use Nette\Utils\Html;
 
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
@@ -48,9 +49,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	{
         $control = $this->menuControl;
 		$control->addProvider($this->adminMenuProvider);
-		$control->setContainerPrototype(\Nette\Utils\Html::el('div')->setClass('com-adminMenu'));
-		$control->setListPrototype(\Nette\Utils\Html::el('ul')->setClass('list-group'));
-		$control->setItemPrototype(\Nette\Utils\Html::el('li')->setClass('list-group-item'));
+		$control->setContainerPrototype(Html::el('div')->setClass('com-adminMenu'));
+		$control->setListPrototype(Html::el('ul')->setClass('list-group'));
+		$control->setItemPrototype(Html::el('li')->setClass('list-group-item'));
         
 		return $control;
 	}    
@@ -182,5 +183,12 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         
         return $template;
     }
+	
+	protected function shutdown($response) 
+	{
+		parent::shutdown($response);
+
+		$this->entityManager->flush();
+	}
 
 }
