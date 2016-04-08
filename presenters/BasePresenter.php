@@ -21,6 +21,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	
 	/** @var \Kdyby\Doctrine\EntityManager @inject */
 	public $entityManager;
+	
+	/** @persistent */
+	public $id;
     
     public function startup()
     {
@@ -180,6 +183,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         $template = parent::createTemplate();
         
         $template->lang = $this->lang;
+        $template->id = $this->id;
         
         return $template;
     }

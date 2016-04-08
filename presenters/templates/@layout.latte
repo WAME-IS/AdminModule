@@ -25,23 +25,29 @@
 	<body>
 		{include 'header.latte'}
 
-		<div class="row">
-            <div class="col-md-3 col-lg-2">
-                {control menu}
-            </div>
-            
-			<div class="col-sm-9 col-lg-10">
-                <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">
-                    {$flash->message}
-                </div>
-                
-				{ifset #content} 
-					{include #content}
-				{/ifset}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 col-lg-2">
+					{control menu}
+				</div>
+
+				<div class="col-sm-9 col-lg-10">
+					<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">
+						<div class="alert alert-{$flash->type}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<span class="fa {if $flash->type == 'success'}fa-check-circle{elseif $flash->type == 'danger'}fa-times-circle{elseif $flash->type == 'warning'}fa-exclamation-triangle{else}fa-info-circle{/if}"></span>
+							{$flash->message}
+						</div>
+					</div>
+
+					{ifset #content} 
+						{include #content}
+					{/ifset}
+				</div>
 			</div>
 		</div>
-            
-        {include 'footer.latte'}
+				
+		{include 'footer.latte'}
 
 		{block scripts}
 			{control js}
