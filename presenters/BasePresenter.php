@@ -22,6 +22,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	/** @var \Kdyby\Doctrine\EntityManager @inject */
 	public $entityManager;
 	
+	/** @var \Wame\RouterModule\Repositories\RouterRepository @inject */
+	public $routerRepository;
+	
 	/** @persistent */
 	public $id;
     
@@ -30,11 +33,16 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         parent::startup();
         
         if (!$this->user->isLoggedIn()) {
-			$this->flashMessage(_('Pre vstup do tejto sekcie sa musíte prihlásiť.'), 'danger');
+			$this->flashMessage(_('To enter this section must be signed.'), 'danger');
 			$this->redirect(':User:Sign:in');
 		}
+		
+		if (!$this->user->isAllowed('admin', 'view')) {
+			$this->flashMessage(_('To enter this section you have sufficient privileges.'), 'danger');
+			$this->redirect(':Homepage:Homepage:');
+		}
     }
-
+	
 	/** @return CssLoader */
 	protected function createComponentCss()
 	{
@@ -193,6 +201,37 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		parent::shutdown($response);
 
 		$this->entityManager->flush();
+	}
+	
+	public function redirect($code, $destination = null, $args = []) 
+	{
+		if (!is_numeric($code)) {
+			$args = is_array($destination) ? $destination : array_slice(func_get_args(), 1);
+			$destination = $code;
+			$code = null;
+		} elseif (!is_array($args)) {
+			$args = array_slice(func_get_args(), 2);
+		}
+
+		if ($destination == 'parent') {
+			$route = $this->routerRepository->getRoute($this->getModule(), $this->getName(), $this->getAction());
+
+			if ($route) {
+				$parentRoute = $route->parentRoute;
+				
+				if ($parentRoute) {
+					parent::redirect($parentRoute->presenter . ':' . $parentRoute->action, $args);
+				}
+			}
+		} else {
+			if ($code) {
+				parent::redirect($code, $destination, $args);
+			} else {
+				parent::redirect($destination, $args);
+			}
+		}
+
+		parent::redirect(':Homepage:Homepage:default', $args);
 	}
 
 }

@@ -22,7 +22,7 @@ class SignInListener extends Object
 	{
 		$presenter = $this->application->getPresenter();
 
-		if ($user->isInRole('administrator')) {
+		if ($user->isInRole('admin')) {
 			$presenter->redirect(':Admin:Dashboard:');
 		}
 	}
