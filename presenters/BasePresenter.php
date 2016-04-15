@@ -203,37 +203,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		$this->entityManager->flush();
 	}
 	
-	public function redirect($code, $destination = null, $args = []) 
-	{
-		if (!is_numeric($code)) {
-			$args = is_array($destination) ? $destination : array_slice(func_get_args(), 1);
-			$destination = $code;
-			$code = null;
-		} elseif (!is_array($args)) {
-			$args = array_slice(func_get_args(), 2);
-		}
-
-		if ($destination == 'parent') {
-			$route = $this->routerRepository->getRoute($this->getModule(), $this->getName(), $this->getAction());
-
-			if ($route) {
-				$parentRoute = $route->parentRoute;
-				
-				if ($parentRoute) {
-					parent::redirect($parentRoute->presenter . ':' . $parentRoute->action, $args);
-				}
-			}
-		} else {
-			if ($code) {
-				parent::redirect($code, $destination, $args);
-			} else {
-				parent::redirect($destination, $args);
-			}
-		}
-
-		parent::redirect(':Homepage:Homepage:default', $args);
-	}
-	
 	/**
 	 * Format DateTime to string
 	 * 
