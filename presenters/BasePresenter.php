@@ -233,5 +233,17 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
 		parent::redirect(':Homepage:Homepage:default', $args);
 	}
+	
+	/**
+	 * Format DateTime to string
+	 * 
+	 * @param \DateTime $date
+	 * @param string $format
+	 * @return string
+	 */
+	public function formatDate($date, $format = 'Y-m-d H:i:s')
+	{
+		return $date->format($format);
+	}
 
 }
