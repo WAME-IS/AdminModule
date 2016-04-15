@@ -12,7 +12,8 @@
 	"require": {
 		"wame/core": "*",
 		"wame/menuModule": "*",
-		"wame/userModule": "*"
+		"wame/userModule": "*",
+		"wame/permissionModule": "*"
 	},
 	"autoload": {
 		"classmap": ["."]
