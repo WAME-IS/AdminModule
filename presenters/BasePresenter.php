@@ -201,6 +201,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		parent::shutdown($response);
 
 		$this->entityManager->flush();
+		
+//		exit;
 	}
 	
 	/**
