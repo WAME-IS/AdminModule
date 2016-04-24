@@ -9,7 +9,7 @@ class AdminMenuProvider
     
     /** @var array */
     private $services = [];
-     
+	
     /**
      * Set one service
      * 
