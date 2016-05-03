@@ -2,14 +2,22 @@
 
 namespace Wame\AdminModule\Vendor\Wame\MenuModule;
 
+use Wame\MenuModule\Models\ItemSorter;
+
 class AdminMenuProvider
 {
     /** @var array */
-    private $items = [];
-    
-    /** @var array */
     private $services = [];
-     
+	
+	/** @var ItemSorter */
+	private $itemSorter;
+	
+	
+	public function __construct(ItemSorter $itemSorter) 
+	{
+		$this->itemSorter = $itemSorter;
+	}
+
 	
     /**
      * Set one service
@@ -25,42 +33,6 @@ class AdminMenuProvider
     }
 	
 	
-	private function createItems()
-	{
-		foreach ($this->services as $service) {
-            $item = $service->create()->addItem();
-			
-			if (array_key_exists($item->name, $this->items)) {
-				$this->items[$item->name] = (object) \Nette\Utils\Arrays::mergeTree((array) $item, (array) $this->items[$item->name]);
-			} else {
-				$this->items[$item->name] = $item;
-			}
-        }
-		
-		return $this->items;
-	}
-	
-	
-	private function sortItems($items)
-	{
-		$return = [];
-		
-		foreach ($items as $item) {
-			if (count($item->nodes) == 0) {
-				$return[$item->priority][] = $item;
-			} else {
-//				$item->nodes = $this->sortItems($item->nodes);
-				
-				$return[$item->priority][] = $item;
-			}
-		}
-
-		krsort($return);
-		
-		return $return;
-	}
-	
-
     /**
      * Get items from services
      * 
@@ -68,11 +40,7 @@ class AdminMenuProvider
      */
     public function getItems()
     {
-		$this->createItems();
-
-		$this->items = $this->sortItems($this->items);
-
-        return $this->items;
+        return $this->itemSorter->sort($this->services);
     }
     
 }
