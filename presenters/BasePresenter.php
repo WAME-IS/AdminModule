@@ -4,14 +4,15 @@ namespace App\AdminModule\Presenters;
 
 use Nette;
 use Nette\Utils\Html;
+use Wame\MenuModule\Components\IMenuControlFactory;
 
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     /** h4kuna Gettext latte translator trait */
     use \h4kuna\Gettext\InjectTranslator;
 
-	/** @var \Wame\MenuModule\Components\MenuControl @inject */
-	public $menuControl;
+	/** @var IMenuControlFactory @inject */
+	public $IMenuControlFactory;
 	
 	/** @var \Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider @inject */
 	public $adminMenuProvider;
@@ -58,7 +59,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     /** @return \Wame\MenuModule\Components\MenuControl */
 	protected function createComponentMenu()
 	{
-        $control = $this->menuControl;
+        $control = $this->IMenuControlFactory->create();
 		$control->addProvider($this->adminMenuProvider);
 		$control->setContainerPrototype(Html::el('div')->setClass('com-adminMenu'));
 		$control->setListPrototype(Html::el('ul')->setClass('list-group'));
