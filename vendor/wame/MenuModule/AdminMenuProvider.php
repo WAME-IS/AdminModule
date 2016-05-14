@@ -2,13 +2,22 @@
 
 namespace Wame\AdminModule\Vendor\Wame\MenuModule;
 
+use Wame\MenuModule\Models\ItemSorter;
+
 class AdminMenuProvider
 {
     /** @var array */
-    private $items = [];
-    
-    /** @var array */
     private $services = [];
+	
+	/** @var ItemSorter */
+	private $itemSorter;
+	
+	
+	public function __construct(ItemSorter $itemSorter) 
+	{
+		$this->itemSorter = $itemSorter;
+	}
+
 	
     /**
      * Set one service
@@ -22,7 +31,8 @@ class AdminMenuProvider
 
         return $this;
     }
-
+	
+	
     /**
      * Get items from services
      * 
@@ -30,17 +40,7 @@ class AdminMenuProvider
      */
     public function getItems()
     {
-        foreach ($this->services as $service) {
-            $item = $service->create()->addItem();
-			if (array_key_exists($item->name, $this->items)) {
-				$this->items[$item->name] = (object) \Nette\Utils\Arrays::mergeTree((array) $this->items[$item->name], (array) $item);
-			} else {
-				$this->items[$item->name] = $item;
-			}
-			
-        }
-       
-        return $this->items;
+        return $this->itemSorter->sort($this->services);
     }
     
 }

@@ -21,7 +21,7 @@ webloader:
         admin:
             remoteFiles:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
-                - https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+                - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
             files:
                 - %appDir%/../private/stylesheets/admin/layout.less
             filters:
@@ -41,3 +41,4 @@ webloader:
                 - https://nette.github.io/resources/js/netteForms.min.js
             files:
                 - %appDir%/../private/javascripts/admin/main.js
+                - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js

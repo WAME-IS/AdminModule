@@ -2,9 +2,7 @@
 
 namespace App\AdminModule\Components;
 
-use Nette\Application\UI;
-
-class BaseControl extends UI\Control
+class BaseControl extends \App\Core\Components\BaseControl
 {
 
 }
