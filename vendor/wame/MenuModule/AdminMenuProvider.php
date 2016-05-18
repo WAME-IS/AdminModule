@@ -2,9 +2,10 @@
 
 namespace Wame\AdminModule\Vendor\Wame\MenuModule;
 
+use Wame\MenuModule\Models\IMenuProvider;
 use Wame\MenuModule\Models\ItemSorter;
 
-class AdminMenuProvider
+class AdminMenuProvider implements IMenuProvider
 {
     /** @var array */
     private $services = [];
