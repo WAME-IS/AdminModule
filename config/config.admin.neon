@@ -17,29 +17,27 @@ services:
 
 
 webloader:
-    css:
-        admin:
-            remoteFiles:
-                - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
-                - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
-            files:
-                - %appDir%/../private/stylesheets/admin/layout.less
-            filters:
-                - @jwlCssMinFilter
-            fileFilters:
-                - @lessFilter
-                - @wlCssFilter
-            watchFiles:
-                - {files: ["*.css", "*.less"], from: css}
-                - {files: ["*.css", "*.less"], in: css}
+	css:
+		admin:
+			sourceDir: '%appDir%/../private/stylesheets'
+			remoteFiles:
+				- https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+				- https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+			files:
+				- admin/layout.less
+			filters:
 
-    js:
-        admin:
-            remoteFiles:
-                - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-                - https://nette.github.io/resources/js/netteForms.min.js
-            files:
-                - %appDir%/../private/javascripts/nette-ajax/nette.ajax.js
-                - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js
-                - %appDir%/../private/javascripts/admin/main.js
- 
+			fileFilters:
+				- @jwlCssMinFilter
+				- @lessFilter
+#               - @wlCssFilter
+	
+	js:
+		admin:
+			sourceDir: '%appDir%/../private/javascripts'
+			remoteFiles:
+				- https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
+			files:
+				- nette.ajax.js
+				- live-form-validation.js
+				- admin/main.js
