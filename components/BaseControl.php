@@ -1,8 +1,8 @@
 <?php 
 
-namespace Wame\AdminModule\Components;
+namespace App\AdminModule\Components;
 
-class BaseControl extends \Wame\Core\Components\BaseControl
+class BaseControl extends \App\Core\Components\BaseControl
 {
 
 }

@@ -5,8 +5,6 @@ namespace App\AdminModule\Presenters;
 use Nette;
 use Nette\Utils\Html;
 use Wame\MenuModule\Components\IMenuControlFactory;
-use Wame\UserModule\Entities\UserEntity;
-use Wame\UserModule\Repositories\UserRepository;
 
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
@@ -28,12 +26,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	/** @var \Wame\RouterModule\Repositories\RouterRepository @inject */
 	public $routerRepository;
 	
-	/** @var UserRepository @inject */
-	public $userRepository;
-	
-	/** @var UserEntity */
-	public $yourUserEntity;
-	
 	/** @persistent */
 	public $id;
     
@@ -50,8 +42,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 			$this->flashMessage(_('To enter this section you do not have have enough privileges.'), 'danger');
 			$this->redirect(':Homepage:Homepage:');
 		}
-		
-		$this->yourUserEntity = $this->userRepository->get(['id' => $this->user->id]);
     }
 	
 	/** @return CssLoader */
