@@ -47,7 +47,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		}
 		
 		if (!$this->user->isAllowed('admin', 'view')) {
-			$this->flashMessage(_('To enter this section you do not have have enough privileges.'), 'danger');
+			$this->flashMessage(_('To enter this section you do not have enough privileges.'), 'danger');
 			$this->redirect(':Homepage:Homepage:');
 		}
 		
