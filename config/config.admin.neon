@@ -38,9 +38,10 @@ webloader:
         admin:
             remoteFiles:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-                - https://nette.github.io/resources/js/netteForms.min.js
+#                - https://nette.github.io/resources/js/netteForms.min.js
             files:
                 - %appDir%/../private/javascripts/nette-ajax/nette.ajax.js
+                - %appDir%/../vendor/nette/forms/src/assets/netteForms.js
                 - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
 #                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
