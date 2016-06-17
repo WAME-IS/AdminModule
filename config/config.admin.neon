@@ -23,6 +23,7 @@ webloader:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
                 - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
             files:
+                - %appDir%/../private/components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css
                 - %appDir%/../private/stylesheets/admin/layout.less
             filters:
                 - @jwlCssMinFilter
@@ -42,4 +43,7 @@ webloader:
                 - %appDir%/../private/javascripts/nette-ajax/nette.ajax.js
                 - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
+#                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
+                - %appDir%/../private/components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js
+                - %appDir%/../vendor/nextras/forms/js/nextras.datetimepicker.init.js
                 - %appDir%/../private/javascripts/admin/main.js
