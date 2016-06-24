@@ -25,24 +25,19 @@ webloader:
             files:
                 - %appDir%/../private/components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css
                 - %appDir%/../private/stylesheets/admin/layout.less
-            filters:
-                - @jwlCssMinFilter
             fileFilters:
+				- @jwlCssMinFilter
                 - @lessFilter
-                - @wlCssFilter
-            watchFiles:
-                - {files: ["*.css", "*.less"], from: css}
-                - {files: ["*.css", "*.less"], in: css}
+#                - @wlCssFilter
 
     js:
         admin:
             remoteFiles:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-#                - https://nette.github.io/resources/js/netteForms.min.js
+                - https://nette.github.io/resources/js/netteForms.min.js
             files:
-                - %appDir%/../private/javascripts/nette-ajax/nette.ajax.js
-                - %appDir%/../vendor/nette/forms/src/assets/netteForms.js
-                - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js
+                - %appDir%/../private/javascripts/nette.ajax.js
+                - %appDir%/../private/javascripts/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
 #                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
                 - %appDir%/../private/components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js
