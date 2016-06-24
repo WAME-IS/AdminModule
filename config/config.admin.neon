@@ -1,19 +1,19 @@
 services:
-	PermissionObject:
-		setup:
-			- addResource('admin')
-			- addResourceAction('admin', 'view')
-			- allow('moderator', 'admin', 'view')
-			- addResourceAction('admin', 'add')
-			- allow('moderator', 'admin', 'add')
-			- addResourceAction('admin', 'edit')
-			- allow('moderator', 'admin', 'edit')
-			- addResourceAction('admin', 'delete')
-			- allow('admin', 'admin', 'delete')
+    PermissionObject:
+        setup:
+            - addResource('admin')
+            - addResourceAction('admin', 'view')
+            - allow('moderator', 'admin', 'view')
+            - addResourceAction('admin', 'add')
+            - allow('moderator', 'admin', 'add')
+            - addResourceAction('admin', 'edit')
+            - allow('moderator', 'admin', 'edit')
+            - addResourceAction('admin', 'delete')
+            - allow('admin', 'admin', 'delete')
 
-			- addResource('dashboard')
-			- addResourceAction('dashboard', 'view')
-			- allow('moderator', 'dashboard', 'view')
+            - addResource('dashboard')
+            - addResourceAction('dashboard', 'view')
+            - allow('moderator', 'dashboard', 'view')
 
 
 webloader:
@@ -25,24 +25,19 @@ webloader:
             files:
                 - %appDir%/../private/components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css
                 - %appDir%/../private/stylesheets/admin/layout.less
-            filters:
-                - @jwlCssMinFilter
             fileFilters:
+                - @jwlCssMinFilter
                 - @lessFilter
-                - @wlCssFilter
-            watchFiles:
-                - {files: ["*.css", "*.less"], from: css}
-                - {files: ["*.css", "*.less"], in: css}
+#                - @wlCssFilter
 
     js:
         admin:
             remoteFiles:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-#                - https://nette.github.io/resources/js/netteForms.min.js
+                - https://nette.github.io/resources/js/netteForms.min.js
             files:
-                - %appDir%/../private/javascripts/nette-ajax/nette.ajax.js
-                - %appDir%/../vendor/nette/forms/src/assets/netteForms.js
-                - %appDir%/../private/javascripts/nette-live-form-validation/live-form-validation.js
+                - %appDir%/../private/javascripts/nette.ajax.js
+                - %appDir%/../private/javascripts/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
                 - %appDir%/../private/javascripts/wame-bootstrap-modal/bootstrap-modal.js
 #                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
