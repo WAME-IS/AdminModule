@@ -34,7 +34,6 @@ webloader:
         admin:
             remoteFiles:
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-                - https://nette.github.io/resources/js/netteForms.min.js
             files:
                 - %appDir%/../private/javascripts/nette.ajax.js
                 - %appDir%/../private/javascripts/live-form-validation.js
