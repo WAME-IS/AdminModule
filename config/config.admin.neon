@@ -33,6 +33,8 @@ webloader:
     js:
         admin:
             remoteFiles:
+                - https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
+                - https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
                 - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
             files:
                 - %appDir%/../private/javascripts/nette.ajax.js
@@ -42,4 +44,4 @@ webloader:
 #                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
                 - %appDir%/../private/components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js
                 - %appDir%/../vendor/nextras/forms/js/nextras.datetimepicker.init.js
-                - %appDir%/../private/javascripts/admin/main.js
+                - %appDir%/../private/javascripts/init.js
