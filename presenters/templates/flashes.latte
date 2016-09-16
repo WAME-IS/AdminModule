@@ -1,0 +1,7 @@
+<div n:snippet="flashes" n:foreach="$flashes as $flash" n:class="flash, $flash->type">
+    <div class="alert alert-{$flash->type}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="fa {if $flash->type == 'success'}fa-check-circle{elseif $flash->type == 'danger'}fa-times-circle{elseif $flash->type == 'warning'}fa-exclamation-triangle{else}fa-info-circle{/if}"></span>
+        {$flash->message}
+    </div>
+</div>
