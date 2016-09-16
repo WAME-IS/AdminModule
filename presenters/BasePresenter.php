@@ -5,6 +5,7 @@ namespace App\AdminModule\Presenters;
 use Nette\Utils\Html;
 use Wame\MenuModule\Components\MenuControl;
 use Wame\MenuModule\Components\IMenuControlFactory;
+use Wame\AdminModule\Vendor\Wame\MenuModule\ItemTemplate;
 
 
 abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
@@ -14,6 +15,9 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	
 	/** @var \Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider @inject */
 	public $adminMenuProvider;
+    
+    /** @var ItemTemplate @inject */
+	public $itemTemplate;
 	
     
     public function startup()
@@ -54,9 +58,10 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	{
         $control = $this->IMenuControlFactory->create();
 		$control->addProvider($this->adminMenuProvider);
-		$control->setContainerPrototype(Html::el('div')->setClass('com-adminMenu'));
-		$control->setListPrototype(Html::el('ul')->setClass('list-group'));
-		$control->setItemPrototype(Html::el('li')->setClass('list-group-item'));
+		$control->setContainerPrototype(Html::el());
+		$control->setListPrototype(Html::el('ul'));
+		$control->setItemPrototype(Html::el());
+        $control->setItemTemplate($this->itemTemplate);
         
 		return $control;
 	}
