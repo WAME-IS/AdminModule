@@ -15,19 +15,22 @@ services:
             - addResourceAction('dashboard', 'view')
             - allow('moderator', 'dashboard', 'view')
 
+    - Wame\AdminModule\Vendor\Wame\MenuModule\ItemTemplate
+
+# Webloader SASS filter
+    scssFilter: WebLoader\Filter\ScssFilter
 
 webloader:
     css:
         admin:
             remoteFiles:
-                - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
-                - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+                - 'https://fonts.googleapis.com/icon?family=Material+Icons'
             files:
-                - %appDir%/../private/components/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css
-                - %appDir%/../private/stylesheets/admin/layout.less
+                - %appDir%/../private/components/flexboxgrid/css/flexboxgrid.min.css
+                - %wwwDir%/css/admin.css
             fileFilters:
-                - @jwlCssMinFilter
-                - @lessFilter
+#                - @jwlCssMinFilter
+                - @scssFilter
 #                - @wlCssFilter
 
     js:
@@ -35,13 +38,21 @@ webloader:
             remoteFiles:
                 - https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
                 - https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-                - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
+                - https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js
             files:
                 - %appDir%/../private/javascripts/nette.ajax.js
                 - %appDir%/../private/javascripts/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
-                - %appDir%/../private/javascripts/wame-bootstrap-modal/bootstrap-modal.js
-#                - %appDir%/../vendor/ipub/form-datetime/client-side/js/ipub.formDateTime.js
-                - %appDir%/../private/components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js
-                - %appDir%/../vendor/nextras/forms/js/nextras.datetimepicker.init.js
+                - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
+#                - %appDir%/../private/components/materialize/js/initial.js
+#                - %appDir%/../private/components/materialize/js/jquery.easing.1.3.js
+#                - %appDir%/../private/components/materialize/js/jquery.hammer.js
+#                - %appDir%/../private/components/materialize/js/velocity.min.js
+#                - %appDir%/../private/components/materialize/js/global.js
+#                - %appDir%/../private/components/materialize/js/transitions.js
+#                - %appDir%/../private/components/materialize/js/waves.js
+#                - %appDir%/../private/components/materialize/js/buttons.js
+#                - %appDir%/../private/components/materialize/js/forms.js
+#                - %appDir%/../private/components/materialize/js/sideNav.js
+                - %appDir%/../private/javascripts/admin/main.js
                 - %appDir%/../private/javascripts/init.js
