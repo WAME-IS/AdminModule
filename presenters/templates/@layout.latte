@@ -3,12 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<title>{ifset #title}{include title|striptags} | {/ifset}CMS WAME Admin</title>
-        
-		{* jQuery & jQueryUI *}
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 
 		{block head}
 			{control css}
@@ -23,35 +20,20 @@
 	</head>
 	
 	<body>
-		{include 'header.latte'}
+        {include 'header.latte'}
 
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3 col-lg-2">
-					{control menu}
-				</div>
+        {include 'sidebar.latte'}
 
-                
-				<div class="col-md-9 col-lg-10">
-                    {snippet flashes}
-					<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">
-						<div class="alert alert-{$flash->type}">
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<span class="fa {if $flash->type == 'success'}fa-check-circle{elseif $flash->type == 'danger'}fa-times-circle{elseif $flash->type == 'warning'}fa-exclamation-triangle{else}fa-info-circle{/if}"></span>
-							{$flash->message}
-						</div>
-					</div>
-                    {/snippet}
+        <main class="page-content">
+            {include 'flashes.latte'}
 
-					{ifset #content} 
-						{include #content}
-					{/ifset}
-				</div>
-			</div>
-		</div>
-				
-		{include 'footer.latte'}
-        
+            {ifset #content} 
+                {include #content}
+            {/ifset}
+        </main>
+
+        {include 'footer.latte'}
+
         {control js}
         
 		{ifset #scripts}
