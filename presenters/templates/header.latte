@@ -4,9 +4,33 @@
             <a href="#" data-activates="sidebar" class="btn button-collapse sidebar-collapse">
                 <img src="{$basePath}/images/admin/hamburger.png" alt="{_'Menu'}">
             </a>
+            
+            <div class="site-title center hide-on-small-only hide-on-large-only">
+                {ifset #siteTitle} 
+                    {include #siteTitle}
+                {else}
+                    <h1>{$siteTitle}</h1>
+                {/ifset}
+            </div>
+            
             <a href="#" data-activates="sidebar-user-panel" class="btn button-collapse right sidebar-user-panel-collapse">
                 <i class="material-icons">account_circle</i>
             </a>
+            
+            <ul class="left hide-on-med-and-down">
+                <li class="back-button">
+                    <a class="waves-effect waves-teal btn-flat" href="#" onclick="window.history.back();">
+                        <i class="material-icons">keyboard_backspace</i>
+                    </a>
+                </li>
+                <li class="site-title">
+                    {ifset #siteTitle} 
+                        {include #siteTitle}
+                    {else}
+                        <h1>{$siteTitle}</h1>
+                    {/ifset}
+                </li>
+            </ul>
 
             <ul class="right hide-on-med-and-down">
                 <li class="quick-menu">
@@ -15,9 +39,9 @@
                     </a>
                     
                     <ul id="quick-menu" class="dropdown-content z-depth-4">
-                        <li><a href="#!"><i class="material-icons">add_circle_outline</i> {_'New article'}</a></li>
-                        <li><a href="#!"><i class="material-icons">add_shopping_cart</i> {_'New product'}</a></li>
-                        <li><a href="#!"><i class="material-icons">person_add</i> {_'New user'}</a></li>
+                        <li><a href="#"><i class="material-icons">add_circle_outline</i> {_'New article'}</a></li>
+                        <li><a href="#"><i class="material-icons">add_shopping_cart</i> {_'New product'}</a></li>
+                        <li><a href="#"><i class="material-icons">person_add</i> {_'New user'}</a></li>
                     </ul>
                 </li>
                 <li><a href="badges.html">Components</a></li>
@@ -34,3 +58,15 @@
     <li><a href="collapsible.html">Javascript</a></li>
     <li><a href="mobile.html">Mobile</a></li>
 </ul>
+                    
+<div class="quick-menu fixed-action-btn click-to-toggle hide-on-large-only">
+    <a class="btn-floating btn-large">
+        <i class="material-icons">add</i>
+    </a>
+    
+    <ul>
+        <li><a class="btn-floating" href="#"><i class="material-icons">add_circle_outline</i> {_'New article'}</a></li>
+        <li><a class="btn-floating" href="#"><i class="material-icons">add_shopping_cart</i> {_'New product'}</a></li>
+        <li><a class="btn-floating" href="#"><i class="material-icons">person_add</i> {_'New user'}</a></li>
+    </ul>
+</div>
