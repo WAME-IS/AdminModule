@@ -58,10 +58,8 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	{
         $control = $this->IMenuControlFactory->create();
 		$control->addProvider($this->adminMenuProvider);
-		$control->setContainerPrototype(Html::el());
-		$control->setListPrototype(Html::el('ul'));
-		$control->setItemPrototype(Html::el());
         $control->setItemTemplate($this->itemTemplate);
+        $control->setTemplateFile('admin.latte');
         
 		return $control;
 	}

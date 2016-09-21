@@ -22,16 +22,11 @@ class ItemTemplate extends Object
                             ->setText($item->title);
             
         } else {
-            $html = Html::el('ul')
-                        ->addClass('collapsible collapsible-accordion')
-                        ->setData('collapsible', 'accordion')
-                        ->setHtml(Html::el('li')->add(
-                            Html::el('a')
+            $html = Html::el()
+                        ->add(Html::el('div')
                                     ->addClass('collapsible-header')
-                                    ->setHref('#')
                                     ->setText($item->title)
-                            )->add($this->getNodes($item->nodes))
-                        );
+                        )->add($this->getNodes($item->nodes));
         }
         
         return Html::el('li')->setHtml($html);
@@ -40,13 +35,13 @@ class ItemTemplate extends Object
     
     private function getNodes($items)
     {
-        $html = Html::el('ul');
+        $html = Html::el('ul')->setClass('collapsible-body');
 
         foreach ($items as $item) {
             $html->add($this->getItem($item));
         }
         
-        return Html::el('div')->setClass('collapsible-body')->setHtml($html);
+        return $html;
     }
 	
 }
