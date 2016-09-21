@@ -19,9 +19,12 @@ class AdminDataGridControl extends DataGridControl
 	public static $icon_prefix = 'material-icons';
     
     
-	public function __construct(\Nette\ComponentModel\IContainer $parent = NULL, $name = NULL) 
-    {
-        parent::__construct($parent, $name);
+    public function __construct(
+        \Kdyby\Doctrine\EntityManager $entityManager, 
+        \Nette\ComponentModel\IContainer $parent = NULL, 
+        $name = NULL
+    ) {
+        parent::__construct($entityManager, $parent, $name);
         
         $this->setTemplateFile(self::TEMPLATE_PATH . 'templates/datagrid.latte');
         $this->setPagination(true);
