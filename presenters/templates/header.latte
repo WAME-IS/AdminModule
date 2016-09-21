@@ -6,10 +6,10 @@
             </a>
             
             <div class="site-title center hide-on-small-only hide-on-large-only">
-                {ifset #siteTitle} 
-                    {include #siteTitle}
+                {ifset siteTitle} 
+                    {include siteTitle}
                 {else}
-                    <h1>{$siteTitle}</h1>
+                    <h1 n:block="siteTitle">{$siteTitle}</h1>
                 {/ifset}
             </div>
             
@@ -19,13 +19,13 @@
             
             <ul class="left hide-on-med-and-down">
                 <li class="back-button">
-                    <a class="waves-effect waves-teal btn-flat" href="#" onclick="window.history.back();">
+                    <a class="waves-effect btn-flat" href="#" onclick="window.history.back();">
                         <i class="material-icons">keyboard_backspace</i>
                     </a>
                 </li>
                 <li class="site-title">
-                    {ifset #siteTitle} 
-                        {include #siteTitle}
+                    {ifset siteTitle} 
+                        {include siteTitle}
                     {else}
                         <h1>{$siteTitle}</h1>
                     {/ifset}
