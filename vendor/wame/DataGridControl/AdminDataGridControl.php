@@ -28,8 +28,6 @@ class AdminDataGridControl extends DataGridControl
     ) {
         parent::__construct($entityManager, $parent, $name);
         
-        $this->setTemplateFile(self::TEMPLATE_PATH . 'templates/datagrid.latte');
-        
         $this->setPagination(true);
         
         $this->setColumnsHideable();
@@ -37,7 +35,7 @@ class AdminDataGridControl extends DataGridControl
         $this->setOuterFilterRendering();
         
 //        $this->setAutoSubmit(FALSE);
-        
+//        
 //        $this->addExportCsv(_('Csv export (filtered)'), 'export.csv')->setTitle(_('Csv export (filtered)'));
 //        
 //        $this->addInlineAdd();
@@ -45,7 +43,7 @@ class AdminDataGridControl extends DataGridControl
 //        $this->setItemsDetail();
     }
     
-    
+
     public static function getIconPrefix()
     {
         return $this->icon_prefix;
@@ -63,17 +61,38 @@ class AdminDataGridControl extends DataGridControl
     
     
 	/********************************************************************************
+	 *                                  TEMPLATING                                  *
+	 ********************************************************************************/
+
+
+    /** {@inheritDoc} */
+	public function getOriginalTemplateFile()
+	{
+		return self::TEMPLATE_PATH . 'templates/datagrid.latte';
+	}
+    
+    
+	/********************************************************************************
+	 *                                  TREE VIEW                                   *
+	 ********************************************************************************/
+    
+    /** {@inheritDoc} */
+    public function setTreeView($get_children_callback, $tree_view_has_children_column = 'has_children') 
+    {
+        parent::setTreeView($get_children_callback, $tree_view_has_children_column);
+        
+        $this->setTemplateFile(self::TEMPLATE_PATH . '/templates/datagrid_tree.latte');
+        
+        return $this;
+    }
+
+    
+	/********************************************************************************
 	 *                                    COLUMNS                                   *
 	 ********************************************************************************/
 
     
-    /**
-	 * Add column status
-	 * @param  string      $key
-	 * @param  string      $name
-	 * @param  string|null $column
-	 * @return ColumnStatus
-	 */
+    /** {@inheritDoc} */
 	public function addColumnStatus($key, $name, $column = NULL)
 	{
 		$this->addColumnCheck($key);
@@ -89,13 +108,7 @@ class AdminDataGridControl extends DataGridControl
 	 ********************************************************************************/
     
     
-	/**
-	 * Add toolbar button
-	 * @param string $href
-	 * @param string $text
-	 * @param array  $params
-	 * @return ToolbarButton
-	 */
+	/** {@inheritDoc} */
 	public function addToolbarButton($href, $text = '', $params = [])
 	{
 		$button = new ToolbarButton($this, $href, $text, $params);
@@ -109,14 +122,7 @@ class AdminDataGridControl extends DataGridControl
 	 ********************************************************************************/
 
 
-	/**
-	 * Create action
-	 * @param string     $key
-	 * @param string     $name
-	 * @param string     $href
-	 * @param array|null $params
-	 * @return Column\Action
-	 */
+	/** {@inheritDoc} */
 	public function addAction($key, $name, $href = NULL, array $params = NULL)
 	{
 		$this->addActionCheck($key);
@@ -135,10 +141,7 @@ class AdminDataGridControl extends DataGridControl
 	 ********************************************************************************/
     
     
-	/**
-	 * Paginator factory
-	 * @return Components\DataGridPaginator\DataGridPaginator
-	 */
+	/** {@inheritDoc} */
 	public function createComponentPaginator()
 	{
         $component = parent::createComponentPaginator();
@@ -154,13 +157,7 @@ class AdminDataGridControl extends DataGridControl
 	 ********************************************************************************/
 
 
-	/**
-	 * Add export of type callback
-	 * @param string $text
-	 * @param callable $callback
-	 * @param boolean $filtered
-	 * @return Export\Export
-	 */
+	/** {@inheritDoc} */
 	public function addExportCallback($text, $callback, $filtered = FALSE)
 	{
 		if (!is_callable($callback)) {
@@ -175,9 +172,8 @@ class AdminDataGridControl extends DataGridControl
 	 *                                  INLINE ADD                                  *
 	 ********************************************************************************/
 
-	/**
-	 * @return InlineEdit
-	 */
+    
+	/** {@inheritDoc} */
 	public function addInlineAdd()
 	{
 		$this->inlineAdd = new InlineEdit($this);
@@ -196,12 +192,7 @@ class AdminDataGridControl extends DataGridControl
 	 ********************************************************************************/
 
 
-    	/**
-	 * Items can have thair detail - toggled
-	 * @param mixed $detail callable|string|bool
-	 * @param bool|NULL $primary_where_column
-	 * @return Column\ItemDetail
-	 */
+    /** {@inheritDoc} */
 	public function setItemsDetail($detail = TRUE, $primary_where_column = NULL)
 	{
 		if ($this->isSortable()) {
