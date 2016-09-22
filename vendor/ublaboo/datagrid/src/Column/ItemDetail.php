@@ -6,7 +6,7 @@
  * @package     Ublaboo
  */
 
-namespace Ublaboo\DataGrid\Column;
+namespace Wame\AdminModule\Vendor\Ublaboo\Datagrid\Column;
 
 use Ublaboo\DataGrid\Column\ItemDetail as UblabooItemDetail;
 
@@ -14,4 +14,13 @@ use Ublaboo\DataGrid\Column\ItemDetail as UblabooItemDetail;
 class ItemDetail extends UblabooItemDetail
 {
     use \Wame\AdminModule\Vendor\Ublaboo\Datagrid\Traits\TButton;
+    
+    public function __construct(\Ublaboo\DataGrid\DataGrid $grid, $primary_where_column) 
+    {
+        parent::__construct($grid, $primary_where_column);
+
+		$this->class = 'btn btn-icon ajax';
+		$this->icon = 'visibility';
+    }
+
 }
