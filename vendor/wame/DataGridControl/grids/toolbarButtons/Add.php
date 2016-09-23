@@ -2,18 +2,15 @@
 
 namespace Wame\AdminModule\Vendor\Wame\DataGridControl\ToolbarButtons;
 
-use Wame\DataGridControl\BaseGridItem;
+use Wame\DataGridControl\ToolbarButtons\Add as BaseAdd;
 
-class Add extends BaseGridItem
+
+class Add extends BaseAdd
 {
-    /** {@inheritDoc} */
-	public function render($grid)
-    {
-        $grid->addToolbarButton(":{$grid->presenter->getName()}:create", _('Add'))
-                ->setIcon('add_circle_outline')
-                ->setClass('btn btn-link');
-                
-		return $grid;
-	}
+    /** @var string */
+    protected $class = 'btn btn-link';
+    
+    /** @var string */
+    protected $icon = 'add_circle_outline';
     
 }
