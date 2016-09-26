@@ -1,0 +1,3 @@
+router:
+    defaultRoutes:
+        '/[<lang>/]admin/dashboard': 'Admin:Dashboard:default'
