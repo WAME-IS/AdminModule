@@ -43,7 +43,7 @@ webloader:
                 - %appDir%/../private/javascripts/nette.ajax.js
                 - %appDir%/../private/javascripts/live-form-validation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
-#                - %appDir%/../private/javascripts/wame-bootstrap-modal/bootstrap-modal.js
+                - %appDir%/../private/javascripts/wame-materialize-modal/materialize-modal.js
                 - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
 #                - %appDir%/../private/components/materialize/js/initial.js
 #                - %appDir%/../private/components/materialize/js/jquery.easing.1.3.js

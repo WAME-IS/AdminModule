@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <div class="row">
+        <div class="col-xs-9 valign-wrapper">
+            <h1 n:if="$siteTitle" class="valign">{$siteTitle}</h1>
+        </div>
+        
+        <div class="col-xs-3 text-right">
+            <a class="btn btn-icon modal-close" href="#">
+                <i class="material-icons">close</i>
+            </a>
+        </div>
+    </div>
+</div>
+
+{ifset #content} 
+    <div class="modal-content">
+        {include #content} 
+    </div>
+{/ifset}
+
+{ifset #modalFooter} 
+    <div class="modal-footer">
+        {include #modalFooter} 
+    </div>
+{/ifset}
