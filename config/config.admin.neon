@@ -25,9 +25,12 @@ webloader:
         admin:
             remoteFiles:
                 - 'https://fonts.googleapis.com/icon?family=Material+Icons'
+                - https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css
+
             files:
                 - %appDir%/../private/components/flexboxgrid/css/flexboxgrid.min.css
                 - %wwwDir%/css/admin.css
+
             fileFilters:
 #                - @jwlCssMinFilter
                 - @scssFilter
@@ -39,6 +42,8 @@ webloader:
                 - https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
                 - https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
                 - https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js
+                - https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js
+
             files:
                 - %appDir%/../private/javascripts/nette.ajax.js
                 - %appDir%/../private/javascripts/live-form-validation.js
