@@ -7,6 +7,7 @@ use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Column\ColumnStatus;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Toolbar\ToolbarButton;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Column;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Export;
+use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Filter;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\InlineEdit;
 
 
@@ -135,6 +136,25 @@ class AdminDataGridControl extends DataGridControl
 		return $this->actions[$key] = new Column\Action($this, $href, $name, $params);
 	}
     
+    
+	/********************************************************************************
+	 *                                    FILTERS                                   *
+	 ********************************************************************************/
+
+    
+	/** {@inheritDoc} */
+	public function addFilterDate($key, $name, $column = NULL)
+	{
+		$column = $column ?: $key;
+
+		if (!is_string($column)) {
+			throw new DataGridException("FilterDate can only filter in one column.");
+		}
+
+		$this->addFilterCheck($key);
+
+		return $this->filters[$key] = new Filter\FilterDate($this, $key, $name, $column);
+	}    
     
 	/********************************************************************************
 	 *                                  PAGINATION                                  *
