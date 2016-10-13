@@ -32,9 +32,7 @@ webloader:
                 - %wwwDir%/css/admin.css
 
             fileFilters:
-#                - @jwlCssMinFilter
                 - @scssFilter
-#                - @wlCssFilter
 
     js:
         admin:
@@ -47,9 +45,9 @@ webloader:
             files:
                 - %appDir%/../private/javascripts/nette.ajax.js
                 - %appDir%/../private/javascripts/live-form-validation.js
-                - %appDir%/../private/javascripts/admin/initialisation.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
                 - %appDir%/../private/javascripts/wame-materialize-modal/materialize-modal.js
                 - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
                 - %appDir%/../private/javascripts/admin/main.js
+#                - %appDir%/../private/javascripts/admin/initialisation.js
                 - %appDir%/../private/javascripts/init.js
