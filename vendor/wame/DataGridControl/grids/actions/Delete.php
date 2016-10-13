@@ -2,46 +2,8 @@
 
 namespace Wame\AdminModule\Vendor\Wame\DataGridControl\Actions;
 
-use Wame\DataGridControl\BaseGridItem;
-use Wame\DataGridControl\DataGridControl;
-
-
-class Delete extends BaseGridItem
+class Delete extends BaseGridAction
 {
-    /** @var string */
-    private $link;
-    
-    
-    /**
-     * Return link
-     * 
-     * @param DataGridControl $grid
-     * @return string
-     */
-    private function getLink($grid)
-    {
-        if ($this->link) {
-            return $this->link;
-        } else {
-            return ":{$grid->presenter->getName()}:delete";
-        }
-    }
-    
-    
-    /**
-     * Set link
-     * 
-     * @param type $link
-     * @return \Wame\AdminModule\Vendor\Wame\DataGridControl\Actions\Delete
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-        
-        return $this;
-    }
-    
-    
     /** {@inheritDoc} */
 	public function render($grid)
     {
