@@ -20,6 +20,13 @@ abstract class BaseGridAction extends BaseGridItem
     /** set *******************************************************************/
 
     /**
+     * Get link action
+     * 
+     * @return string
+     */
+    abstract protected function getLinkAction();
+    
+    /**
      * Set link
      *
      * @param string $link link
@@ -62,7 +69,7 @@ abstract class BaseGridAction extends BaseGridItem
         if ($this->link) {
             return $this->link;
         } else {
-            return ":{$grid->presenter->getName()}:remove";
+            return ":{$grid->presenter->getName()}:{$this->getLinkAction()}";
         }
     }
 

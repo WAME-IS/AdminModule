@@ -17,5 +17,11 @@ class Remove extends BaseGridAction
 		
 		return $grid;
 	}
+    
+    /** {@inheritDoc} */
+    protected function getLinkAction()
+    {
+        return 'remove';
+    }
 
 }

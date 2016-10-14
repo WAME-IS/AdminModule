@@ -14,5 +14,11 @@ class Delete extends BaseGridAction
 		
 		return $grid;
 	}
-    
+
+    /** {@inheritDoc} */
+    protected function getLinkAction()
+    {
+        return 'delete';
+    }
+
 }

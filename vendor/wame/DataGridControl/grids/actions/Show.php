@@ -15,4 +15,10 @@ class Show extends BaseGridAction
 		return $grid;
 	}
     
+    /** {@inheritDoc} */
+    protected function getLinkAction()
+    {
+        return 'show';
+    }
+    
 }
