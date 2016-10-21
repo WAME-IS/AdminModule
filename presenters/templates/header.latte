@@ -9,7 +9,10 @@
                 {ifset siteTitle} 
                     {include siteTitle}
                 {else}
-                    <h1 n:block="siteTitle">{$siteTitle}</h1>
+                    <h1 n:block="siteTitle">
+                        {$siteTitle}
+                        <span n:if="$subTitle">{$subTitle}</span>
+                    </h1>
                 {/ifset}
             </div>
             
@@ -27,7 +30,10 @@
                     {ifset siteTitle} 
                         {include siteTitle}
                     {else}
-                        <h1>{$siteTitle}</h1>
+                        <h1>
+                            {$siteTitle}
+                            <span n:if="$subTitle">{$subTitle}</span>
+                        </h1>
                     {/ifset}
                 </li>
             </ul>
