@@ -21,6 +21,7 @@
             </a>
             
             <ul class="left hide-on-med-and-down">
+                {position adminHeaderLeft}
                 <li class="back-button">
                     <a class="waves-effect btn-flat" href="#" onclick="window.history.back();">
                         <i class="material-icons">keyboard_backspace</i>
@@ -38,22 +39,7 @@
                 </li>
             </ul>
 
-            <ul class="right hide-on-med-and-down">
-                <li class="quick-menu">
-                    <a class="btn-floating btn-large z-depth-0 dropdown-button" href="#!" data-activates="quick-menu">
-                        <i class="material-icons">add</i>
-                    </a>
-                    
-                    <ul id="quick-menu" class="dropdown-content z-depth-4">
-                        <li><a href="#"><i class="material-icons">add_circle_outline</i> {_'New article'}</a></li>
-                        <li><a href="#"><i class="material-icons">add_shopping_cart</i> {_'New product'}</a></li>
-                        <li><a href="#"><i class="material-icons">person_add</i> {_'New user'}</a></li>
-                    </ul>
-                </li>
-                {*<li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>*}
-            </ul>
+            {position adminHeaderRight}
         </div>
     </nav>
 </div>
@@ -64,15 +50,3 @@
     <li><a href="collapsible.html">Javascript</a></li>
     <li><a href="mobile.html">Mobile</a></li>
 </ul>
-                    
-<div class="quick-menu fixed-action-btn click-to-toggle hide-on-large-only">
-    <a class="btn-floating btn-large">
-        <i class="material-icons">add</i>
-    </a>
-    
-    <ul>
-        <li><a class="btn-floating" href="#"><i class="material-icons">add_circle_outline</i> {_'New article'}</a></li>
-        <li><a class="btn-floating" href="#"><i class="material-icons">add_shopping_cart</i> {_'New product'}</a></li>
-        <li><a class="btn-floating" href="#"><i class="material-icons">person_add</i> {_'New user'}</a></li>
-    </ul>
-</div>
