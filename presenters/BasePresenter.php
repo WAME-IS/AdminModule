@@ -32,8 +32,6 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 			$this->flashMessage(_('To enter this section you do not have enough privileges.'), 'danger');
 			$this->redirect(':Homepage:Homepage:');
 		}
-
-        $this->dictionary->setDomain('AdminModule');
     }
 
 
