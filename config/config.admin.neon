@@ -29,6 +29,7 @@ webloader:
 
             files:
                 - %appDir%/../private/components/flexboxgrid/css/flexboxgrid.min.css
+                - %appDir%/../private/components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css
                 - %wwwDir%/css/admin.css
 
             fileFilters:
@@ -49,6 +50,7 @@ webloader:
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
                 - %appDir%/../private/javascripts/wame-materialize-modal/materialize-modal.js
                 - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
+                - %appDir%/../private/components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js
                 - %appDir%/../private/javascripts/admin/main.js
 #                - %appDir%/../private/javascripts/admin/initialisation.js
                 - %appDir%/../private/javascripts/init.js

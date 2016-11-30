@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{$lang}">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +35,12 @@
         </main>
 
         {include 'footer.latte'}
+        
+        <script>
+            var WAME = {};
+            var urlId = {(int)$id};
+            WAME.lang = {$lang};
+        </script>
 
         {control js}
         
