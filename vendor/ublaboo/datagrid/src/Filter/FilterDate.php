@@ -8,17 +8,19 @@ use Ublaboo\DataGrid\Filter\FilterDate as UblabooFilterDate;
 
 class FilterDate extends UblabooFilterDate
 {
+	/** {@inheritDoc} */
+	protected $format = ['d.m.Y H:i'];
+
     /** {@inheritDoc} */
     protected $attributes = [
-		['class', 'datepicker']
+		['class', 'date-time-picker']
 	];
-    
-    
+
+
 	/** {@inheritDoc} */
 	public function addToFormContainer(Nette\Forms\Container $container)
 	{
-		$container->addText($this->key, $this->name)
-                    ->setType('date');
+		$container->addText($this->key, $this->name);
 
 		$this->addAttributes($container[$this->key]);
 
