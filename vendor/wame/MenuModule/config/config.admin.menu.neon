@@ -1,3 +1,5 @@
 services:
     AdminMenu:
         class: Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider
+        setup:
+            - setService(Wame\AdminModule\Vendor\Wame\MenuModule\Components\MenuControl\AdminMenu\AdminMenuItem())
