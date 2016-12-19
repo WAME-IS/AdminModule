@@ -40,7 +40,7 @@ webloader:
             remoteFiles:
                 - https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
                 - https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
-                - https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js
+                - https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js
                 - https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js
 
             files:
@@ -49,6 +49,7 @@ webloader:
                 - %appDir%/../private/javascripts/admin/wameInit.js
                 - %appDir%/../private/javascripts/wame-add-param-to-url/add-param-to-url.js
                 - %appDir%/../private/javascripts/wame-materialize-modal/materialize-modal.js
+                - %appDir%/../private/javascripts/wame-materialize-modal/materialize-modal-inline.js
                 - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
                 - %appDir%/../private/components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js
                 - %appDir%/../private/javascripts/admin/main.js
