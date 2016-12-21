@@ -54,7 +54,12 @@ class AdminDataGridControl extends DataGridControl
     public function attach()
 	{
         foreach($this->register->getArray() as $item) {
-            $this->checkService($item['service'])->render($this);
+            $this->checkService($item['service'])
+                    ->setParent($this)
+                    ->setParameters($item['parameters'])
+                    ->render($this);
+            
+            $item['service']->setVisibility($this);
         }
         
         return $this;
