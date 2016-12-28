@@ -23,12 +23,13 @@ services:
 webloader:
     css:
         admin:
+            sourceDir: '%appDir%/../private/stylesheets'
             remoteFiles:
                 - 'https://fonts.googleapis.com/icon?family=Material+Icons'
                 - https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css
 
             files:
-                - %appDir%/../private/components/flexboxgrid/css/flexboxgrid.min.css
+                - ../components/flexboxgrid/css/flexboxgrid.min.css
                 - %appDir%/../private/components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css
                 - %wwwDir%/css/admin.css
 
