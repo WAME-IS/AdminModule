@@ -23,10 +23,10 @@ class ItemTemplate extends Object
             
         } else {
             $html = Html::el()
-                        ->add(Html::el('div')
+                        ->addHtml(Html::el('div')
                                     ->addClass('collapsible-header')
                                     ->setText($item->title)
-                        )->add($this->getNodes($item->nodes));
+                        )->addHtml($this->getNodes($item->nodes));
         }
         
         return Html::el('li')->setHtml($html);
@@ -38,7 +38,7 @@ class ItemTemplate extends Object
         $html = Html::el('ul')->setClass('collapsible-body');
 
         foreach ($items as $item) {
-            $html->add($this->getItem($item));
+            $html->addHtml($this->getItem($item));
         }
         
         return $html;
