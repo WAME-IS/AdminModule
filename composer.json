@@ -11,9 +11,12 @@
     ],
     "require": {
         "wame/Core": "*",
-        "wame/MenuModule": "*",
         "wame/PermissionModule": "*",
         "wame/UserModule": "*"
+    },
+    "softRequire": {
+        "wame/MenuModule": "*",
+        "wame/RouterModule": "*"
     },
     "autoload": {
         "classmap": [
