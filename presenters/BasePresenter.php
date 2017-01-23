@@ -2,9 +2,12 @@
 
 namespace App\AdminModule\Presenters;
 
+use Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider;
 use Wame\MenuModule\Components\MenuControl;
 use Wame\MenuModule\Components\IMenuControlFactory;
 use Wame\AdminModule\Vendor\Wame\MenuModule\ItemTemplate;
+use WebLoader\Nette\CssLoader;
+use WebLoader\Nette\JavaScriptLoader;
 
 
 abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
@@ -12,7 +15,7 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	/** @var IMenuControlFactory @inject */
 	public $IMenuControlFactory;
 
-	/** @var \Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider @inject */
+	/** @var AdminMenuProvider @inject */
 	public $adminMenuProvider;
 
     /** @var ItemTemplate @inject */
@@ -53,7 +56,7 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	 *
 	 * @return MenuControl
 	 */
-	protected function createComponentMenu()
+	protected function createComponentMenu() // TODO: refactor, zbavit sa zavyslosti na menu
 	{
         $control = $this->IMenuControlFactory->create();
 		$control->addProvider($this->adminMenuProvider);

@@ -2,6 +2,9 @@
 
 namespace Wame\AdminModule\Vendor\Wame\DataGridControl;
 
+use Kdyby\Doctrine\EntityManager;
+use Nette\ComponentModel\IContainer;
+use Ublaboo\DataGrid\Exception\DataGridException;
 use Wame\DataGridControl\DataGridControl;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Column\ColumnStatus;
 use Wame\AdminModule\Vendor\Ublaboo\Datagrid\Toolbar\ToolbarButton;
@@ -16,15 +19,14 @@ class AdminDataGridControl extends DataGridControl
     const TEMPLATE_PATH = BASE_PATH . '/templates/materialDesign/ublaboo/datagrid/src/';
     
     
-    /**
-	 * @var string
-	 */
+    /** @var string */
 	public static $icon_prefix = 'material-icons';
     
-    
+
+	/** {@inheritdoc} */
     public function __construct(
-        \Kdyby\Doctrine\EntityManager $entityManager, 
-        \Nette\ComponentModel\IContainer $parent = NULL, 
+        EntityManager $entityManager,
+        IContainer $parent = NULL,
         $name = NULL
     ) {
         parent::__construct($entityManager, $parent, $name);
@@ -43,14 +45,19 @@ class AdminDataGridControl extends DataGridControl
 //        
 //        $this->setItemsDetail();
     }
-    
 
+
+    /**
+     * Get icon prefix
+     *
+     * @return string
+     */
     public static function getIconPrefix()
     {
-        return $this->icon_prefix;
+        return self::$icon_prefix;
     }
-    
-    
+
+    /** {@inheritdoc} */
     public function attach()
 	{
         foreach($this->register->getArray() as $item) {
@@ -261,7 +268,7 @@ class AdminDataGridControl extends DataGridControl
     
     /********************************************************************************/
     
-    
+    /** {@inheritDoc} */
     public function render() 
     {
         parent::render();
@@ -269,7 +276,13 @@ class AdminDataGridControl extends DataGridControl
         $this->getTemplate()->icon_prefix = static::$icon_prefix;
     }
 
-    
+
+    /**
+     * Check service
+     *
+     * @param $service
+     * @return mixed
+     */
     private function checkService($service)
     {
         $adminService = str_replace('Wame\DataGridControl', 'Wame\AdminModule\Vendor\Wame\DataGridControl', get_class($service));

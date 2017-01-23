@@ -24,7 +24,7 @@ class AdminMenuProvider implements IMenuProvider
      * Set one service
      * 
      * @param string $service
-     * @return \Wame\MenuModule\Models\MenuBuilder
+     * @return $this
      */
     public function setService($service) 
     {

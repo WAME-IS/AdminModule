@@ -3,6 +3,7 @@
 namespace Wame\AdminModule\Vendor\Wame\MenuModule\Components\MenuControl\AdminMenu;
 
 use Nette\Application\LinkGenerator;
+use Wame\MenuModule\Models\IMenuItem;
 use Wame\MenuModule\Models\Item;
 
 interface IAdminMenuItem
@@ -12,7 +13,7 @@ interface IAdminMenuItem
 }
 
 
-class AdminMenuItem implements \Wame\MenuModule\Models\IMenuItem
+class AdminMenuItem implements IMenuItem
 {	
     /** @var LinkGenerator */
 	private $linkGenerator;

@@ -1,4 +1,6 @@
 services:
+    - Wame\AdminModule\Vendor\Wame\MenuModule\ItemTemplate
+
     AdminMenu:
         class: Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider
         setup:

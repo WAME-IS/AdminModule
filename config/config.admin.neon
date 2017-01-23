@@ -1,4 +1,5 @@
 services:
+
     PermissionObject:
         setup:
             - addResource('admin')
@@ -15,10 +16,10 @@ services:
             - addResourceAction('dashboard', 'view')
             - allow('moderator', 'dashboard', 'view')
 
-    - Wame\AdminModule\Vendor\Wame\MenuModule\ItemTemplate
-
-# Webloader SASS filter
+    # Webloader SASS filter
     scssFilter: WebLoader\Filter\ScssFilter
+
+
 
 webloader:
     css:

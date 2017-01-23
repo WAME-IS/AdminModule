@@ -2,7 +2,7 @@
 
 namespace App\AdminModule\Presenters;
 
-class DashboardPresenter extends \App\AdminModule\Presenters\BasePresenter
+class DashboardPresenter extends BasePresenter
 {
 	public function renderDefault()
 	{
