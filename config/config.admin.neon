@@ -44,6 +44,7 @@ webloader:
                 - https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
                 - https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js
                 - https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js
+                - https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js
 
             files:
                 - %appDir%/../private/javascripts/admin/wameInit.js
