@@ -27,7 +27,7 @@ class AdminDataGridControl extends DataGridControl
     public function __construct(
         EntityManager $entityManager,
         IContainer $parent = NULL,
-        $name = NULL
+        $name = 'grid'
     ) {
         parent::__construct($entityManager, $parent, $name);
         
