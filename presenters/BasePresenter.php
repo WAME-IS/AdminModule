@@ -2,6 +2,7 @@
 
 namespace App\AdminModule\Presenters;
 
+use Nette\Http\Url;
 use Wame\AdminModule\Vendor\Wame\MenuModule\AdminMenuProvider;
 use Wame\MenuModule\Components\MenuControl;
 use Wame\MenuModule\Components\IMenuControlFactory;
@@ -91,5 +92,22 @@ abstract class BasePresenter extends \App\Core\Presenters\BasePresenter
 	{
 		return parent::formatLayoutTemplateFiles($modulePath, $way);
 	}
+
+
+    /**
+     * Get previous referer url
+     *
+     * @param bool $string
+     *
+     * @return \Nette\Http\Url|void|string
+     */
+	public function getRefererUrl($string = true)
+    {
+        $refererUrl = $this->getHttpRequest()->getHeader('referer');
+
+        if ($string === true) return $refererUrl;
+
+        return new Url($refererUrl);
+    }
 
 }
