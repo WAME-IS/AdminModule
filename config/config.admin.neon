@@ -16,6 +16,34 @@ services:
             - addResourceAction('dashboard', 'view')
             - allow('moderator', 'dashboard', 'view')
 
+
+    # Commands
+    PositionAdminBeforeContentCommand:
+        class: \Wame\AdminModule\Commands\PositionAdminBeforeContentCommand
+        tags: [kdyby.console.command]
+
+    PositionAdminAfterContentCommand:
+        class: \Wame\AdminModule\Commands\PositionAdminAfterContentCommand
+        tags: [kdyby.console.command]
+
+    PositionAdminHeaderLeftCommand:
+        class: \Wame\AdminModule\Commands\PositionAdminHeaderLeftCommand
+        tags: [kdyby.console.command]
+
+    PositionAdminHeaderRightCommand:
+        class: \Wame\AdminModule\Commands\PositionAdminHeaderRightCommand
+        tags: [kdyby.console.command]
+
+
+    # Registers
+    AdminPositionRegister:
+        setup:
+            - add(@PositionAdminBeforeContentCommand, 'PositionAdminBeforeContentCommand')
+            - add(@PositionAdminAfterContentCommand, 'PositionAdminAfterContentCommand')
+            - add(@PositionAdminHeaderLeftCommand, 'PositionAdminHeaderLeftCommand')
+            - add(@PositionAdminHeaderRightCommand, 'PositionAdminHeaderRightCommand')
+
+
     # Webloader SASS filter
     scssFilter: WebLoader\Filter\ScssFilter
 
