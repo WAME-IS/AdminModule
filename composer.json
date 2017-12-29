@@ -1,5 +1,5 @@
 {
-    "name": "wame/AdminModule",
+    "name": "wameis/AdminModule",
     "version": "0.0.2",
     "description": "CMS WAME admin",
     "homepage": "http://wame.sk/cms-wame-admin",
@@ -16,13 +16,13 @@
     "config": { "secure-http": false },
     "require": {
         "leafo/scssphp": "0.6.*",
-        "wame/Core": ">=0.0.1",
-        "wame/MenuModule": ">=0.0.1",
-        "wame/PermissionModule": ">=0.0.1",
-        "wame/UserModule": ">=0.0.1"
+        "wameis/Core": ">=0.0.1",
+        "wameis/MenuModule": ">=0.0.1",
+        "wameis/PermissionModule": ">=0.0.1",
+        "wameis/UserModule": ">=0.0.1"
     },
     "softRequire": {
-        "wame/RouterModule": ">=0.0.1"
+        "wameis/RouterModule": ">=0.0.1"
     },
     "autoload": {
         "classmap": [
