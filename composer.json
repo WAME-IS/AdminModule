@@ -17,11 +17,11 @@
     "require": {
         "leafo/scssphp": "0.6.*",
         "wame/Core": ">=0.0.1",
+        "wame/MenuModule": ">=0.0.1",
         "wame/PermissionModule": ">=0.0.1",
         "wame/UserModule": ">=0.0.1"
     },
     "softRequire": {
-        "wame/MenuModule": ">=0.0.1",
         "wame/RouterModule": ">=0.0.1"
     },
     "autoload": {
