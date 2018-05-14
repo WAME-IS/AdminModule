@@ -82,4 +82,3 @@ webloader:
                 - %appDir%/../private/components/flexboxgrid/js/modernizr.flexbox.js
                 - %appDir%/../private/components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js
                 - %appDir%/../private/javascripts/admin/main.js
-#                - %appDir%/../private/javascripts/admin/initialisation.js
